@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import ButtonTheme from "./components/ButtonTheme";
+import CardTheme from "./components/CardTheme";
+import LigthFactory from "./factories/LigthTheme";
+import DarkFactory from "./factories/DarkTheme";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [factory, setFactory] = useState(new LigthFactory());
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <h1> Theme Switcher with Abstract Factory</h1>
 
-export default App
+      <div>
+        <button onClick={() => setFactory(new LigthFactory())}>
+          Light Theme
+        </button>
+        <button
+          onClick={() => setFactory(new DarkFactory())}
+          style={{ marginLeft: "10px" }}
+        >
+          Dark Theme
+        </button>
+      </div>
+
+      <ButtonTheme factory={factory} />
+      <CardTheme factory={factory} />
+    </div>
+  );
+}
+export default App;
