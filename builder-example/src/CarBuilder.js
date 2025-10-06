@@ -5,8 +5,8 @@ class Car {
     this.doors = builder.doors;
     this.engine = builder.engine;
   }
-  tostring() {
-    return `${this.brand}-${this.color}-${this.doors}-${this.engine}`;
+  toString() {
+    return `brand: ${this.brand}-with color: ${this.color}- and ${this.doors}doors- and engine${this.engine}`;
   }
 }
 
@@ -28,6 +28,6 @@ export class CarBuilder {
     return this;
   }
   build() {
-    return newCar(this);
+    return new Car(this);
   }
 }
