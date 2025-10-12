@@ -26,7 +26,9 @@ function App() {
         </ul>
       </div>
 
-      <button onClick={handleClick}>create clone</button>
+      <button className="button" onClick={handleClick}>
+        create clone
+      </button>
       {clone && (
         <div className="clone">
           <h2>clone setting</h2>
