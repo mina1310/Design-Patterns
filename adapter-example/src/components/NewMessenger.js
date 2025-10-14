@@ -1,5 +1,5 @@
 export class NewMessenger {
-  send(content, reciept) {
+  newsend(content, reciept) {
     return `the message sent with this content :${content} sent to ${reciept}`;
   }
 }
