@@ -17,15 +17,18 @@ function App() {
   };
 
   return (
-    <div>
+    <div
+      style={{ display: "flex", gap: "8rem", width: "100%", height: "100vh" }}
+    >
       <div>
-        <h2>you can type you're code here and see that here</h2>
+        <h2>you can type message to admin and see that </h2>
         <input
           type="text"
           placeholder="write you're message"
           id="message"
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
+          style={{ margin: "1rem" }}
         />
         <button onClick={inputHandler}>click</button>
       </div>
