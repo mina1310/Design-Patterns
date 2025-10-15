@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+
+import "./App.css";
+import { NewMessenger } from "./components/NewMessenger";
+import { MessageAdapter } from "./components/MessageAdapter";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [inputText, setInputText] = useState("");
+  const [showInputText, setShowInputText] = useState("");
+  const inputHandler = () => {
+    const message = new NewMessenger();
+    const adapter = new MessageAdapter(message);
+    const showMessage = adapter.send(inputText);
+    setShowInputText(showMessage);
+    setInputText("");
+    console.log("app done");
+  };
 
   return (
-    <>
+    <div>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h2>you can type you're code here and see that here</h2>
+        <input
+          type="text"
+          placeholder="write you're message"
+          id="message"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+        />
+        <button onClick={inputHandler}>click</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div>
+        <h2>see message</h2>
+        {showInputText && <p>{showInputText}</p>}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

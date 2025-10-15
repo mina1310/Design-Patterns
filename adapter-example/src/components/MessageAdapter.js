@@ -5,6 +5,8 @@ export class MessageAdapter {
   send(message) {
     const text = message;
     const receiver = "admin";
-    this.newMessenger.newsend(text, receiver);
+    const result = this.newMessenger.newsend(text, receiver);
+    console.log("adapter done");
+    return result;
   }
 }
