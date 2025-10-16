@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { File } from "./models/file";
+import { Folder } from "./models/Folder";
+import FolderView from "./components/FolderView";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const root = new Folder("projects");
+  const frontend = new Folder("frontend");
+  const backend = new Folder("backend");
+  frontend.add(new File("index.html"));
+  frontend.add(new File("App.js"));
+  backend.add(new File("database.sql"));
+
+  root.add(frontend);
+  root.add(backend);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div style={{ fontFamily: "monospace" }}>
+      <h2>my File Explorer</h2>
+      <FolderView folder={root} />
+    </div>
+  );
 }
 
-export default App
+export default App;
