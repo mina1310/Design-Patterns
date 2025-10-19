@@ -1,16 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { bankProxy } from "./bankProxy";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [result, setResult] = useState(null);
+
+  const handleWithdraw = () => {
+    const res = bankProxy.withdraw("Mina", 200);
+    setResult(res);
+  };
+
+  const handleWrongUser = () => {
+    const res = bankProxy.withdraw("Ali", 100);
+    setResult(res);
+  };
 
   return (
-    <>
-      <
-    </>
-  )
+    <div style={{ textAlign: "center", marginTop: "2rem" }}>
+      <h2>💳 Bank Proxy Example</h2>
+      <p>Balance: {bankProxy.balance}</p>
+
+      <button onClick={handleWithdraw}>Withdraw 200 (Mina)</button>
+      <button onClick={handleWrongUser}>Withdraw 100 (Ali)</button>
+
+      {result && (
+        <div style={{ marginTop: "1rem" }}>
+          <pre>{JSON.stringify(result, null, 2)}</pre>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
