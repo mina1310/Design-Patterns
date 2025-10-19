@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { bankProxy } from "./bankProxy";
+import { bankProxy } from "./utils/bankProxy";
 
 function App() {
   const [result, setResult] = useState(null);
@@ -15,18 +15,20 @@ function App() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <h2>💳 Bank Proxy Example</h2>
-      <p>Balance: {bankProxy.balance}</p>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ textAlign: "center", marginTop: "2rem", width: "100vw" }}>
+        <h2> Bank Proxy Example</h2>
+        <p>Balance: {bankProxy.balance}</p>
 
-      <button onClick={handleWithdraw}>Withdraw 200 (Mina)</button>
-      <button onClick={handleWrongUser}>Withdraw 100 (Ali)</button>
+        <button onClick={handleWithdraw}>Withdraw 200 (Mina)</button>
+        <button onClick={handleWrongUser}>Withdraw 100 (Ali)</button>
 
-      {result && (
-        <div style={{ marginTop: "1rem" }}>
-          <pre>{JSON.stringify(result, null, 2)}</pre>
-        </div>
-      )}
+        {result && (
+          <div style={{ marginTop: "1rem" }}>
+            <pre>{JSON.stringify(result, null, 2)}</pre>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
