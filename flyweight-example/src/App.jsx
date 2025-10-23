@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import "./App.css";
 import ProductItem from "./components/ProductItem";
+import MethodBuy from "./components/MethodBuy";
 
 function App() {
   const shoppingList = [
@@ -8,7 +9,7 @@ function App() {
     { id: 2, product: "cream", price: 2500, method: "online" },
     { id: 3, product: "book", price: 2500, method: "online" },
   ];
-  const [count, setCount] = useState(0);
+  let selectedMethod = useMemo(() => <MethodBuy method="online" />, []);
 
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
           product={item.product}
           price={item.price}
           index={index}
+          method={selectedMethod}
         />
       ))}
     </>
