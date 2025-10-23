@@ -1,4 +1,4 @@
-export const ApiResponce = {
+export const ApiClient = {
   async post(url: String, data: any) {
     if (url === "login") {
       return { token: "string", data: { name: "mina", email: "data.email" } };
