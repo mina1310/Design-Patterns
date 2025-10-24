@@ -1,7 +1,9 @@
-const createAdvancedRemote = (device) => {
+import { createRemote } from "./createRemote";
+
+export const createAdvancedRemote = (device) => {
   const base = createRemote(device);
   return {
     ...base,
-    mute: device.setvolume(0),
+    mute: () => device.setVolume(0),
   };
 };
