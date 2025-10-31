@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import { notificationStore } from "./components/createNotificationStore";
+
 import FirstNotification from "./components/FirstNotification";
 import SecondNotification from "./components/SecondNotification";
+import { notificationStore } from "./services/createNotificationStore";
 
 export default function App() {
   const [input, setInput] = useState("");

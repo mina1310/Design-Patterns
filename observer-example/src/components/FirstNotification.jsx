@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { notificationStore } from "./createNotificationStore";
+import { notificationStore } from "../services/createNotificationStore";
 
 export default function FirstNotification() {
   const [notifications, setNotifications] = useState([]);
