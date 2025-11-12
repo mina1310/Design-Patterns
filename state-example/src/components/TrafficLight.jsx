@@ -11,7 +11,7 @@ const TrafficLight = () => {
           borderRadius: "50%",
           margin: "0 auto 20px",
           backgroundColor: color,
-          boxShadow: "0 0 20px " + color,
+          boxShadow: `0 0 20px ${color} `,
           transition: "background-color 0.3s ease",
         }}
       />
