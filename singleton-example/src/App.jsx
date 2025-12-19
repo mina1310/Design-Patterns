@@ -26,8 +26,8 @@ function App() {
     >
       <div style={{ padding: "20px", backgroundColor: color }}>
         <h1>This is about singleton design pattern</h1>
-        <p>the current theme is:{config.get("theme")}</p>
-        <p>the current color is:{config.get("color")}</p>
+        <p>the current theme is:{theme}</p>
+        <p>the current color is:{color}</p>
         <h2>You can change these setting via button below</h2>
         <button onClick={handleMultipleChanges}>click button</button>
       </div>
