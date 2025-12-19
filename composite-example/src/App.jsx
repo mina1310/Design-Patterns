@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { File } from "./models/file";
+import { File } from "./models/File";
 import { Folder } from "./models/Folder";
 import FolderView from "./components/FolderView";
 
