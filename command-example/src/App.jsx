@@ -1,4 +1,4 @@
-import CommandPatternDemo from "./components/CommandPatternDemo";
+import CommandPatternDemo from "./components/commandPatternDemo";
 
 export default function App() {
   return <CommandPatternDemo />;
