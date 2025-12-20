@@ -13,7 +13,7 @@ export const PersonalInformationInput = () => {
       <h2>لطفا اطلاعات زیر را تکمیل کنید</h2>
       <input name="username" value={username} onChange={handleChange} />
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {!error && username && <p style={{ color: "green" }}>✅ معتبر است</p>}
+      {!error && username && <p style={{ color: "green" }}> معتبر است</p>}
     </div>
   );
 };
