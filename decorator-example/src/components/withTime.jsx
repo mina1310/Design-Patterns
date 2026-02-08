@@ -13,7 +13,7 @@ export function withTime(Greeting) {
 
     return (
       <div>
-        <Greeting {...props} />
+        <Greeting {...props} time={time} />
         <p>time is :{time}</p>
       </div>
     );

@@ -1,6 +1,6 @@
 import "./App.css";
 import Greeting from "./components/Greeting";
-import { withTime } from "./components/WithTime";
+import { withTime } from "./components/withTime";
 
 function App() {
   const GreetingWithTime = withTime(Greeting);
